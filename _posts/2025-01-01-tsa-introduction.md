@@ -22,15 +22,6 @@ With time series analysis the patterns and relationships within the data to make
 - Regression analysis, on the other hand, is used to study the relationship between a dependent variable and one or more independent variables. 
 It helps to predict what the outcome will be based on the values of the independent variables.
 
-### Anomaly Detection/ Outlier Detection
-Anomaly detection in the context of time series refers to the process of identifying data points that deviate significantly from the expected pattern or behaviour of the time series.
-Time series are typically used to represent data that varies over time, such as sensor reading, stock prices, or weather data.
-By detecting anomalies in time series data, we can identify unusual events or behaviours that may indicate a mulfuction or a potential problem.
-
-![Anomaly detection in Time Series Analysis](/assets/images/ai/tsa-anomaly-detection.png)
-
-There are multiple cases that some anomalies cannot detected by human eyes.
-
 ### 1. Components of Time Series
 - **Trend** - Increasing or decreasing value in the series.
 	![Components of Time Series Analysis (Trend)](/assets/images/ai/tsa-components-trend.png)
@@ -100,7 +91,7 @@ There are some test as
 - Summary statistics
 - Statistical tests
 	* **ADF**- The Augmented Dickey-Fuller (ADF) test aka Unit Root Test
-	* **KPS**- Kwiatkowski-Phillips-Schmidt-Shin
+	* **KPSS**- Kwiatkowski-Phillips-Schmidt-Shin
 
 If data has unit root, then its not statinary.
 
@@ -128,7 +119,15 @@ Common data pre-processing techniques
 	* Encode categorical data
 	* Feature engineering
 	
-#### Outlier Treatment
+#### Anomaly/Outlier Detection
+Anomaly detection in the context of time series refers to the process of identifying data points that deviate significantly from the expected pattern or behaviour of the time series.
+Time series are typically used to represent data that varies over time, such as sensor reading, stock prices, or weather data.
+By detecting anomalies in time series data, we can identify unusual events or behaviours that may indicate a mulfuction or a potential problem.
+
+![Anomaly detection in Time Series Analysis](/assets/images/ai/tsa-anomaly-detection.png)
+
+There are multiple cases that some anomalies cannot detected by human eyes.
+
 Outliers are the most extreams values in the data. It is an abnormal observations that deviate from the normal data. Outliers do not fit in the normal behaviour of the data.
 Detect outliers using following methods,
 - Boxplot
