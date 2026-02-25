@@ -3,6 +3,7 @@ title: Time Series Analysis (Part - I)
 date: 2025-01-01 20:14 +0300
 categories: [Time Series Analysis]
 tags: [python, time series analysis]
+math: true
 author: Varatharuban
 description: "Predict future values"
 ---
@@ -130,6 +131,7 @@ There are multiple cases that some anomalies cannot detected by human eyes.
 
 Outliers are the most extreams values in the data. It is an abnormal observations that deviate from the normal data. Outliers do not fit in the normal behaviour of the data.
 Detect outliers using following methods,
+- 3 sigma technique
 - Boxplot
 - Histogram
 - Scatter plot
@@ -144,4 +146,26 @@ Handle outlier using following methods,
 	* Inter quartile range
 - Use that ML model which are not sensitive to outliers (KNN, DT, SVM, Naive Bayes, Ensemble methods)
 
+#### Feature Scaling
+Feature scaling is the method to re-scale the values present in the features. In feature scaling we convert the scale of different measurement into a single scale. It standardize the whole dataset in one range.
 
+When we are dealing with independent variable or features that differ from each other in terms of range of values or units of the features, then we have to normalize/standardize the data so that the difference in range of values doesn't affect the outcome of the data.
+
+The two most accepted techniques for feature scalling,
+- Standard Scaler (if data normaly distributed)
+Standard scaler ensures that for each feature, the mean is zero and the standard deviation is 1, bringing all feature to the same magnitude. In simple words Standardization helps you to scale down your feature based on the standard normal distrubution.
+Standardization in statistics is a process of converting data to z-score values based on the mean and standard deviation of the data.
+The standardize data will have mean equals to zero and the values will generally range between - 3 and +3. Almost 99.7% data will fall.
+$$
+z = \frac{x - \mu}{\sigma}
+$$
+
+- Min-Max Scaler (if data not normaly distributed)
+Normalization helps you to scale down your features between a range 0 to 1.
+$$X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}$$
+
+#### Feature Encoding
+Transform categorical data into numeric data.
+- **Label encoding**: is the technique to transform categorical variables into numerical variables by assigning a numerical value to each of the categories.
+- **One-Hot encoding**: this technique is uded when independent variables are nominal. It creates k different columns each for a category and replaces one column with 1 rest of the columns is 0. Here 0, represent the absence, and 1 represents the presence of that category.
+- **Dummy encoding**: one of the dummy feature can be ignored. Using drop_first or drop_last attribute can ignore the columns.
