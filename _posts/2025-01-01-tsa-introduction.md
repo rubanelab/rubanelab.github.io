@@ -159,16 +159,12 @@ Standard scaler ensures that for each feature, the mean is zero and the standard
 Standardization in statistics is a process of converting data to z-score values based on the mean and standard deviation of the data.
 The standardize data will have mean equals to zero and the values will generally range between - 3 and +3. Almost 99.7% data will fall.
 
-$$
-z = \frac{x - \mu}{\sigma}
-$$
+$$z = \frac{x - \mu}{\sigma}$$
 
 - Min-Max Scaler (if data not normaly distributed)
 Normalization helps you to scale down your features between a range 0 to 1.
 
-$$
-X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
-$$
+$$X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}$$
 
 #### Feature Encoding
 Transform categorical data into numeric data.
