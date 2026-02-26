@@ -3,9 +3,16 @@ title: Time Series Analysis (Part - I)
 date: 2025-01-01 20:14 +0300
 categories: [Time Series Analysis]
 tags: [python, time series analysis]
+math: true
 author: Varatharuban
 description: "Predict future values"
 ---
+
+This is inline math $E = mc^2$
+
+$$
+X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
+$$
 
 ### Time Series Analysis
 It is a series of observations taken at specified times basically at equal intervals. 
