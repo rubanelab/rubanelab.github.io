@@ -8,12 +8,6 @@ author: Varatharuban
 description: "Predict future values"
 ---
 
-This is inline math $E = mc^2$
-
-$$
-X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
-$$
-
 ### Time Series Analysis
 It is a series of observations taken at specified times basically at equal intervals. 
 It is used to predict future values based on past observed values.
@@ -83,7 +77,7 @@ plt.show()
 
 ### 2. Stationarity
 Statistical properties of a time series remaining constant over time.
-A time series is called to be stationary if its mean , variance, standard deviation &#963;, or autocorelation remains constant over time.
+A time series is called to be stationary if its mean ($\mu$), variance, standard deviation ($\sigma$), or autocorelation remains constant over time.
 Stationarity is important because many time series forecasting methods rely on the underlying statistical properties of the time series being stationary.
 When a time series is not stationary, it can be difficult to make accurate predictions because statistical properties of the data are changing over time.
 
@@ -103,6 +97,8 @@ There are some test as
 If data has unit root, then its not statinary.
 
 If data doesn't have the unit root, then its statinary.
+
+![Anomaly detection in Time Series Analysis](/assets/images/ai/tsa-stationary-test-adf-kpss.png)
 
 #### Transformations
 Various transfomation techniques to rid of the seasonal and trend components from time series data (to make the data to statinary)
@@ -162,13 +158,17 @@ The two most accepted techniques for feature scalling,
 Standard scaler ensures that for each feature, the mean is zero and the standard deviation is 1, bringing all feature to the same magnitude. In simple words Standardization helps you to scale down your feature based on the standard normal distrubution.
 Standardization in statistics is a process of converting data to z-score values based on the mean and standard deviation of the data.
 The standardize data will have mean equals to zero and the values will generally range between - 3 and +3. Almost 99.7% data will fall.
+
 $$
 z = \frac{x - \mu}{\sigma}
 $$
 
 - Min-Max Scaler (if data not normaly distributed)
 Normalization helps you to scale down your features between a range 0 to 1.
-$$X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}$$
+
+$$
+X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
+$$
 
 #### Feature Encoding
 Transform categorical data into numeric data.
