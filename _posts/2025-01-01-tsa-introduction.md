@@ -27,7 +27,7 @@ It helps to predict what the outcome will be based on the values of the independ
 - **Trend** - Increasing or decreasing value in the series.
 	![Components of Time Series Analysis (Trend)](/assets/images/ai/tsa-components-trend.png)
 - **Seasonality** - A general systematic liner or (most often) non-linear component that changes over time and does repeat.
-- **Irregularity** - The data in the time series follows a temporal sequences, but the measurements might not happen at a regualr time interval.
+- **Irregularity** - The data in the time series follows a temporal sequences, but the measurements might not happen at a regular time interval.
 - **Cyclic** - Pattern exists when data exhibit rises and falls that are not of fixed period.
 
 #### Techniques to detech Components of Time Series
@@ -50,6 +50,7 @@ If the magnitude of seasonal component is <u>proportional</u> to the magnitude o
 
 If the magnitude of seasonal component is <u>independent</u> to the magnitude of the trend component additive decomposition is prefered.
 
+![Anomaly detection in Time Series Analysis](/assets/images/ai/tsa-decomposition.jpeg)
 
 ```python
 import pandas as pd
@@ -115,7 +116,7 @@ Common data pre-processing techniques
 - Data cleaning:
 	* Handling missing values
 	* Remove duplicates
-	* Deal with outliers.
+	* Deal with outliers
 	
 - Data transfomation:
 	* Feature scaling
@@ -142,7 +143,7 @@ Detect outliers using following methods,
 
 
 Handle outlier using following methods,
-- Remove the outliers.
+- Remove the outliers
 - Replace Outlier with suitable values by using,
 	* Quantile method
 	* Inter quartile range
