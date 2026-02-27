@@ -66,4 +66,21 @@ Better than AR or MA alone when data has mixed patterns.
 #### 1.4 ARIMA Model
 Combination of ARMA with an additional dfifferencing step to ensure that the data is stationary.
 
+Stationary is an important concept in time series analysis, because most models work on the assumption that the data is stationary.
+<br>
+Used when data has trend or is non-stationary.<br><br>
+Step 1: Differencing → Make data stationary<br>
+Step 2: Then apply ARMA<br>
+
+Most popular classical forecasting model
+
+![Components of Time Series Analysis (Trend)](/assets/images/ai/tsa-arima-model.png)
+
+| Model            | Full Name                                | Idea                                                  | When to Use                                         | Equation Form                                                           | Stationary Required                          |
+| ---------------- | ---------------------------------------- | ----------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------- |
+| **AR(p)**        | Autoregressive                           | Uses **past values** to predict future values         | When data depends strongly on previous observations | $(Y_t = c + \phi_1Y_{t-1}+...+\phi_pY_{t-p}+\epsilon_t)$                  | ✅ Yes                                        |
+| **MA(q)**        | Moving Average                           | Uses **past errors (noise)** to predict future values | When shocks/errors influence future values          | $(Y_t = c + \epsilon_t+\theta_1\epsilon_{t-1}+...\theta_q\epsilon_{t-q})$ | ✅ Yes                                        |
+| **ARMA(p,q)**    | Autoregressive Moving Average            | Combines **AR + MA**                                  | When data has both trend memory and noise patterns  | AR + MA combined                                                        | ✅ Yes                                        |
+| **ARIMA(p,d,q)** | Autoregressive Integrated Moving Average | ARMA applied after **differencing**                   | When data is **non-stationary**                     | Differencing + ARMA                                                     | ❌ No (becomes stationary after differencing) |
+
 
