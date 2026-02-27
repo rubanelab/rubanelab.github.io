@@ -40,3 +40,30 @@ Variance of ARIMA
 
 Differencing is one of the transfomation technique that can use to make a time series data stationary. In ARIMA models, we use differencing to remove trends and seasonality from the time series (to easy to analyse and model).
 
+
+#### 1.1 AR Model
+The future value of the time series is estimated as a linear combination of past values of the time series. The degree of past values to be considered in the linear combination is determined by the order of AR model.
+
+Future Value ← Past Values
+<br>
+Predicts future values using previous values
+<br>
+Example, If yesterday temperature was high → today likely high
+
+#### 1.2 MA Model
+The future values of the time series are based on the average of past forecast errors. Again the degree of past forecast errors to be considered is determined by the order of the MA model.
+<br><br>
+Future Value ← Past Errors
+<br>
+Predicts future values using previous errors
+<br>
+Example, If prediction error was large yesterday → adjust today
+
+#### 1.3 ARMA Model
+ARMA is the combination of past values and the past forecast errors.
+Better than AR or MA alone when data has mixed patterns.
+
+#### 1.4 ARIMA Model
+Combination of ARMA with an additional dfifferencing step to ensure that the data is stationary.
+
+
