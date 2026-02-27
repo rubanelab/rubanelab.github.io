@@ -62,6 +62,8 @@ Example, If prediction error was large yesterday → adjust today
 #### 1.3 ARMA Model
 ARMA is the combination of past values and the past forecast errors.
 Better than AR or MA alone when data has mixed patterns.
+<br>
+Future Value ← Past Values + Past Errors
 
 #### 1.4 ARIMA Model
 Combination of ARMA with an additional dfifferencing step to ensure that the data is stationary.
@@ -73,6 +75,8 @@ Step 1: Differencing → Make data stationary<br>
 Step 2: Then apply ARMA<br>
 
 Most popular classical forecasting model
+<br>
+Future Value ← Differencing → ARMA
 
 ![Components of Time Series Analysis (Trend)](/assets/images/ai/tsa-arima-model.png)
 
@@ -83,4 +87,15 @@ Most popular classical forecasting model
 | **ARMA(p,q)**    | Autoregressive Moving Average            | Combines **AR + MA**                                  | When data has both trend memory and noise patterns  | AR + MA combined                                                        | ✅ Yes                                        |
 | **ARIMA(p,d,q)** | Autoregressive Integrated Moving Average | ARMA applied after **differencing**                   | When data is **non-stationary**                     | Differencing + ARMA                                                     | ❌ No (becomes stationary after differencing) |
 
+
+### ACF and PACF (Autocorrelation Function/ Partial Autocorrelation Function)
+Autocorrelation analyis is one of the important step in the exploratory data analyis of time series forecasting. The autocorrelation analysis helps detect patterns and check for randomness.
+It's essentially important when you intend to use an autoregressive moving average, which is a ARMA model for forecasting because it helps to determine its parameters.
+The autocorrelation analysis involves looking at the autocorrelation function, which is ACF, and partial ACF.
+The ACF and PACF plots are used to identify or find the order of the AR, MA and AEMA models.
+
+Using the ACF plot, we will be able to identify the q parameter that goes into our ARIMA model.
+
+To identify the p, we need to see the PACF plot.
+To identify the q, we need to see the ACF plot.
 
