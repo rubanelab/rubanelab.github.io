@@ -99,3 +99,15 @@ Using the ACF plot, we will be able to identify the q parameter that goes into o
 To identify the p, we need to see the PACF plot.
 To identify the q, we need to see the ACF plot.
 
+#### Optimum way of finding p, d and q
+- ACF/PACF Plots (manual approach)
+- Grid search: pass set of p, d, q values to ARIMA and check the lowest RMSE.
+- Auto ARIMA: also a grid search but in automated way (pass the min max p, d, q)
+
+#### Making Time Series stationary
+- Log transfomation
+- Differencing
+- Double Log
+- Double Differencing
+- Log + Differencing
+
