@@ -57,6 +57,14 @@ Feature scaling is the method to re-scale the values present in the features. In
 When we are dealing with independent variable or feautures that differ from each other in terms of range of values or unit of the features, then we have to normalize/standardize the data so that the difference in range of values doesn't affect the outcome of the data.
 - Standardization (Standard Scaler)
 	Standardization in statistics is a process of converting data to z-score values based on the mean and standard deviation of the data.
-	Standard Scaler ensures that for each feature, the mean is zero and the sta
+	Standard scaler ensures that for each feature, the mean is zero and the standard deviation is 1, bringing all feature to the same magnitude. In simple words Standardization helps you to scale down your feature based on the standard normal distrubution.
+	Standardization in statistics is a process of converting data to z-score values based on the mean and standard deviation of the data.
+	The standardize data will have mean equals to zero and the values will generally range between - 3 and +3. Almost 99.7% data will fall.
+
+	
+	$$z = \frac{x - \mu}{\sigma}$$
+	
 - Normalization (Min-Max Scaler)
 	Normalization helps you to scale down features between a range of 1 to 1.
+	
+	$$X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}$$
