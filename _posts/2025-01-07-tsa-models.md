@@ -111,3 +111,4 @@ To identify the q, we need to see the ACF plot.
 - Double Differencing
 - Log + Differencing
 
+![Components of Time Series Analysis (Trend)](/assets/images/ai/tsa-flow.png)
