@@ -51,7 +51,7 @@ If you pass all the records to train the model, how can we test it perform corre
 
 ![Components of Time Series Analysis (Trend)](/assets/images/ai/ml-train-test-flow.png)
 
-### Feature scaling (data cleaning process)
+### Feature Scaling (data cleaning process)
 Feature scaling is the method to re-scale the values present in the features. In feature scaling we convert the scale of different measurement into a single scale. It standardize the whole dataset in one range.
 <br>
 When we are dealing with independent variable or feautures that differ from each other in terms of range of values or unit of the features, then we have to normalize/standardize the data so that the difference in range of values doesn't affect the outcome of the data.
@@ -68,3 +68,25 @@ When we are dealing with independent variable or feautures that differ from each
 	Normalization helps you to scale down features between a range of 1 to 1.
 	
 	$$X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}$$
+
+### Feature Encoding
+
+
+### Regression
+Regression analysis is a form of predictive modeling technique which investigate the relationship between target and features.
+
+This technique is used for forecasting, time series modeling and finding the casual effect relationship between the variables.<br>
+Variaous regression alrorithsms.
+- Linear Regression/Multiple Linear Regression
+- Polynomial Regression
+- Lasso Regression
+- Ridge Regression
+- Stepwise Regression
+
+#### Regression Metrics
+- Mean Absouute Error
+- Mean Squared Error
+- Root Mean Squared Error
+- R2-Score
+- R2-Score Adjested
+
