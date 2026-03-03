@@ -70,7 +70,78 @@ When we are dealing with independent variable or feautures that differ from each
 	$$X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}$$
 
 ### Feature Encoding
+Feature encoding is the process of converting categorical data into numerical format so machine learning models can understand it.
 
+Most ML algorithms (Linear Regression, Logistic Regression, SVM, Neural Networks, etc.) cannot work directly with text values like "Red", "Male", "Singapore".
+
+#### Label Encoding
+Education Level → High School < Bachelor < Master < PhD
+```python
+from sklearn.preprocessing import LabelEncoder
+import pandas as pd
+
+data = pd.DataFrame({
+    'Education': ['High School', 'Bachelor', 'Master', 'PhD']
+})
+
+encoder = LabelEncoder()
+data['Education_encoded'] = encoder.fit_transform(data['Education'])
+
+print(data)
+
+#Education      Education_encoded
+#High School    1
+#Bachelor       0
+#Master         2
+#PhD            3
+```
+
+#### One-Hot Encoding
+Color → Red, Blue, Green
+```python
+import pandas as pd
+
+data = pd.DataFrame({
+    'Color': ['Red', 'Blue', 'Green']
+})
+
+encoded = pd.get_dummies(data, columns=['Color'])
+print(encoded)
+```
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
+import pandas as pd
+
+# Sample dataset
+data = pd.DataFrame({
+    'Gender': ['Male', 'Female', 'Female', 'Male'],
+    'Age': [25, 30, 22, 35],
+    'Purchased': [0, 1, 0, 1]
+})
+
+X = data[['Gender', 'Age']]
+y = data['Purchased']
+
+# Column transformer
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('cat', OneHotEncoder(), ['Gender'])
+    ],
+    remainder='passthrough'
+)
+
+pipeline = Pipeline([
+    ('preprocessing', preprocessor),
+    ('model', LogisticRegression())
+])
+
+pipeline.fit(X, y)
+```
 
 ### Regression
 Regression analysis is a form of predictive modeling technique which investigate the relationship between target and features.
