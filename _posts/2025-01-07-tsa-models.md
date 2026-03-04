@@ -41,7 +41,7 @@ Variance of ARIMA
 Differencing is one of the transfomation technique that can use to make a time series data stationary. In ARIMA models, we use differencing to remove trends and seasonality from the time series (to easy to analyse and model).
 
 
-#### 1.1 AR Model
+#### 1. AR Model
 The future value of the time series is estimated as a linear combination of past values of the time series. The degree of past values to be considered in the linear combination is determined by the order of AR model.
 
 Future Value ← Past Values
@@ -50,7 +50,7 @@ Predicts future values using previous values
 <br>
 Example, If yesterday temperature was high → today likely high
 
-#### 1.2 MA Model
+#### 2. MA Model
 The future values of the time series are based on the average of past forecast errors. Again the degree of past forecast errors to be considered is determined by the order of the MA model.
 <br><br>
 Future Value ← Past Errors
@@ -59,13 +59,13 @@ Predicts future values using previous errors
 <br>
 Example, If prediction error was large yesterday → adjust today
 
-#### 1.3 ARMA Model
+#### 3. ARMA Model
 ARMA is the combination of past values and the past forecast errors.
 Better than AR or MA alone when data has mixed patterns.
 <br>
 Future Value ← Past Values + Past Errors
 
-#### 1.4 ARIMA Model
+#### 4. ARIMA Model
 Combination of ARMA with an additional dfifferencing step to ensure that the data is stationary.
 
 Stationary is an important concept in time series analysis, because most models work on the assumption that the data is stationary.
@@ -88,7 +88,7 @@ Future Value ← Differencing → ARMA
 | **ARIMA(p,d,q)** | Autoregressive Integrated Moving Average | ARMA applied after **differencing**                   | When data is **non-stationary**                     | Differencing + ARMA                                                     | ❌ No (becomes stationary after differencing) |
 
 
-### ACF and PACF (Autocorrelation Function/ Partial Autocorrelation Function)
+#### ACF and PACF (Autocorrelation Function/ Partial Autocorrelation Function)
 Autocorrelation analyis is one of the important step in the exploratory data analyis of time series forecasting. The autocorrelation analysis helps detect patterns and check for randomness.
 It's essentially important when you intend to use an autoregressive moving average, which is a ARMA model for forecasting because it helps to determine its parameters.
 The autocorrelation analysis involves looking at the autocorrelation function, which is ACF, and partial ACF.
@@ -112,3 +112,14 @@ To identify the q, we need to see the ACF plot.
 - Log + Differencing
 
 ![Components of Time Series Analysis (Trend)](/assets/images/ai/tsa-flow.png)
+
+#### Grid Search
+ACF/PACF plots are some traditional methods of obtaining p, d and q values, and are sometimes misleading, hence we need to perform a hyper parameter optimization step in the Time Series Analysis to get the optimum p, d and q values.
+
+### Facebook Prophet
+Facebook Prophet is an open-source, additive, time-series forecasting tool developed by Meta (formerly Facebook) that is designed for ease of use, speed, and handling of seasonality (daily, weekly, yearly) and holidays. It is widely used for business metrics, such as sales and capacity planning, and is robust to missing data and outliers.
+- Very fast
+- An additive regression model where non-linear trends are fit with yearly, weekly and daily seasonality, plus holiday effects.
+- Robust to missing data and shifts in trend, and handles outliers automatically.
+- Easy procedure to tweak and adjust forecast while adding domain knowledge or business insights.
+
