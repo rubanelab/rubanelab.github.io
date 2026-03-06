@@ -1,5 +1,5 @@
 ---
-title: Time Series Analysis - Models (Part - II)
+title: Time Series Analysis - ARIMA (Part - II)
 date: 2025-01-07 20:14 +0300
 categories: [Time Series Analysis]
 tags: [python, time series analysis]
