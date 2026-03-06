@@ -10,7 +10,7 @@ description: "Predict future values"
 
 ### Machine Learning
 
-Machine Learning is a subset of AI, that provides computers with the ability to learn without being explicitly programed. ML focuses on the development of computer programs that can teach themselves to grow and change when exposed to new data.
+Machine Learning is a subset of AI, that provides computers with the ability to learn without being explicitly programed. Machine Learning focuses on the development of computer programs that can teach themselves to grow and change when exposed to new data.
 - Automatically learn
 - Improve performance from past experience
 - Make predictions
@@ -19,19 +19,19 @@ Machine Learning is a subset of AI, that provides computers with the ability to 
 
 ### Types of Machine Learning
 Based on the methods and way of learning, majorly divided into following categories,
-- **Supervised learning** (labeled data - some of the data already mapped with the output)
-	* Classifification - spam detection, fraud detection, churn analysis, disease prediction
-	  KNN, Decision Tree, Random Forest, Logistic Regression, Naive Bayse, 
-	* Regression - another type of supervised learning. there is a relationship between input and output, and based on that you use to predict the continuous out variable.
-		House price prediction
+- **Supervised learning** (LABELED data - some of the data already mapped with the output)
+	* Regression - Type of supervised learning. Investigate the relationship between input and output, and based on that you use to predict the continuous out variable.
+	  eg. House price prediction
+	* Classifification - Spam detection, Fraud detection, Churn analysis, Disease prediction<br>
+	  KNN, Decision Tree, Random Forest, Logistic Regression, Naive Bayse
 	* Forecasting (date time plays vital role)
-- **Unsupervised learning** (unlabeled data: news -> sports, politics, cinema, if new news comes should predict)
+- **Unsupervised learning** (UNLABELED data: News → Sports, Politics, Science, if new news comes should predict)
 - **Reinforcement learning**
 
 
 
-Diving the data into a proper training and test data is very important. Sometimes your predictions may go wrong.
-Draw a line that should closest to all data points (best fit line).
+Dividing the data into a proper training and test data is very important. Sometimes your predictions may go wrong.<br>
+Best Fit Line - Draw a line that should closest to all data points.
 
 ### Features
 The features, aka independent variables or predators, are the input variables used to make predictions or classify data in a machine learning model.
@@ -46,8 +46,20 @@ For ex, in a model predicting house prices, features could include the number of
 | Predators             |                     |
 | Input variables       | Output variables    |
 
+The columns which will help in the model building process are called x-variables, predators or features.
+<br>
+The column that you are going to predict is y-variable or dependent variable or target.
+
 ### Train-Test Split
-If you pass all the records to train the model, how can we test it perform correctly or not?
+If you pass all the records to train the model, then cannot test it perform correctly or not.<br>
+You can decide the training/testing data portion with train_size or test_size attributes. No need to pass both to avoid the redundant information.
+If test_size=0.2 then the train_size will be 0.8
+
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+```
 
 ![Components of Time Series Analysis (Trend)](/assets/images/ai/ml-train-test-flow.png)
 
@@ -55,22 +67,37 @@ If you pass all the records to train the model, how can we test it perform corre
 Feature scaling is the method to re-scale the values present in the features. In feature scaling we convert the scale of different measurement into a single scale. It standardize the whole dataset in one range.
 <br>
 When we are dealing with independent variable or feautures that differ from each other in terms of range of values or unit of the features, then we have to normalize/standardize the data so that the difference in range of values doesn't affect the outcome of the data.
+Simply neutralize the data (bring all data into same magnitude).
+
+Following two are the most accepted scaling techniques,
+
 - Standardization (Standard Scaler)
 	Standardization in statistics is a process of converting data to z-score values based on the mean and standard deviation of the data.
 	Standard scaler ensures that for each feature, the mean is zero and the standard deviation is 1, bringing all feature to the same magnitude. In simple words Standardization helps you to scale down your feature based on the standard normal distrubution.
-	Standardization in statistics is a process of converting data to z-score values based on the mean and standard deviation of the data.
 	The standardize data will have mean equals to zero and the values will generally range between - 3 and +3. Almost 99.7% data will fall.
 
 	
 	$$z = \frac{x - \mu}{\sigma}$$
 	
-- Normalization (Min-Max Scaler)
-	Normalization helps you to scale down features between a range of 1 to 1.
+- Normalization (Min-Max Scaler) - Normalization helps you to scale down features between a range of 1 to 1.
 	
 	$$X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}$$
 
+```python
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+scaler = MinMaxScaler(feature_range=(0, 1))
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+```
+
 ### Feature Encoding
-Feature encoding is the process of converting categorical data into numerical format so machine learning models can understand it.
+Feature encoding is the process of converting __categorical data__ into numerical format so machine learning models can understand it.
 
 Most ML algorithms (Linear Regression, Logistic Regression, SVM, Neural Networks, etc.) cannot work directly with text values like "Red", "Male", "Singapore".
 
@@ -150,14 +177,39 @@ This technique is used for forecasting, time series modeling and finding the cas
 Variaous regression alrorithsms.
 - Linear Regression/Multiple Linear Regression
 - Polynomial Regression
-- Lasso Regression
-- Ridge Regression
+- Lasso Regression (L1)
+- Ridge Regression (L2)
 - Stepwise Regression
 
+#### Model building steps
+1. Data cleaning (fillna, dropna)
+1. Split data into training and test data
+1. Feature scaling (Standard/Min-Max scaler)
+1. Feature encoding (if categorical data available)
+1. Feature engineering (feature selection)
+1. Create/Train model
+1. Evaluvate the model
+
 #### Regression Metrics
-- Mean Absouute Error
-- Mean Squared Error
-- Root Mean Squared Error
-- R2-Score
-- R2-Score Adjested
+These are common evaluation metrics for regression models. They measure how well a model predicts continuous values. <br>
+Here’s a clear explanation of each one:
+1. **Mean Absolute Error (MAE)** - Average of the absolute differences between predicted and actual values.<br>
+   $$MAE=\frac{1}{n}∑∣yi​−\hat{yi}∣$$
+1. **Mean Squared Error (MSE)** - Average of the squared differences between predicted and actual values.<br>
+   $$MSE=\frac{1}{n}∑(yi​−\hat{yi}​)^2$$
+1. **Root Mean Squared Error (RMSE)** - Square root of MSE.<br>
+   $$RMSE=\sqrt{MSE}$$  
+1. **R² Score (Coefficient of Determination)** - Measures how much variance in the target variable is explained by the model.<br>
+   $$R^2 = 1 - \frac{SSR_{reg}}{SSM_{mean}}$$
+1. **Adjusted R²** - Modified R² that penalizes adding unnecessary features. Adding relevant featuers, score will increase and if adding irrelevant features score will decrease<br>
+   $$\text{Adjusted } R^2 = 1 - \left(\frac{(1 - R^2)(n - 1)}{n - k - 1}\right)$$
+
+| Metric      | Measures                | Sensitive to Outliers |
+| ----------- | ----------------------- | --------------------- |
+| MAE         | Average absolute error  | ❌ No                  |
+| MSE         | Average squared error   | ✅ Yes                 |
+| RMSE        | Root of squared error   | ✅ Yes                 |
+| R²          | Variance explained      | ❌                     |
+| Adjusted R² | R² with feature penalty | ❌                     |
+
 

@@ -123,3 +123,7 @@ Facebook Prophet is an open-source, additive, time-series forecasting tool devel
 - Robust to missing data and shifts in trend, and handles outliers automatically.
 - Easy procedure to tweak and adjust forecast while adding domain knowledge or business insights.
 
+### Univariate vs Multivariate
+- Univariate - Series with a single time-dependent variable
+
+- Multivariate - Series having more than one time-dependent variable
